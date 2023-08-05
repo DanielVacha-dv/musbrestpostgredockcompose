@@ -1,0 +1,1 @@
+create psql db with schema, and table ok . Controller for insert/list ok.
