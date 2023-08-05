@@ -1,0 +1,41 @@
+server:
+  port: 8090
+
+spring:
+  application:
+    name: musbrestpostgredockcompose
+  main:
+    banner-mode: off
+  jpa:
+    database: postgresql
+    hibernate:
+      ddl-auto: update
+  datasource:
+    url: jdbc:postgresql://localhost:8001/fis_ext
+    username: fis_ext
+    password: fis_ext
+    driver-class-name: org.postgresql.Driver
+
+ibm:
+  mq:
+    queue-manager: QM1
+    channel: DEV.ADMIN.SVRCONN
+    conn-name: localhost(1414)
+    user: admin
+    password: passw0rd
+
+defaults:
+  tcp-server:
+    port: 21151
+  svak-mb-jms:
+    destination-name: DEV.QUEUE.1
+    headers:
+      "X-Psb-ReqSysId": "32655"
+      "X-Psb-TgSysId": "32570"
+      "X-Psb-ServiceName": "Car_GateRegistrationPoint_v1"
+  svak-kv-jms:
+    destination-name: DEV.QUEUE.1
+    headers:
+      "X-Psb-ReqSysId": "32655"
+      "X-Psb-TgSysId": "32569"
+      "X-Psb-ServiceName": "Car_GateRegistrationPoint_v1"

@@ -1,0 +1,26 @@
+version: '3'
+
+services:
+  pgsql:
+    image: postgres:latest
+    volumes:
+      - ./docker/pgsql/init-schema.sh:/docker-entrypoint-initdb.d/init-schema.sh
+      - ./data/pgsql:/var/lib/postgresql/data
+    environment:
+#      environment variables are used in init script
+      - POSTGRES_DB=fis_ext
+      - POSTGRES_PASSWORD=fis_ext
+      - POSTGRES_USER=fis_ext
+      - POSTGRES_HOST_AUTH_METHOD=trust
+      - POSTGRES_SCHEMA=fis_ext
+#if something go wrong delete dir /data/pgsql and remove container also
+    ports:
+      - "8001:5432"
+  psb-mq:
+    image: icr.io/ibm-messaging/mq:latest
+    environment:
+      - LICENSE=accept
+      - MQ_QMGR_NAME=QM1
+    ports:
+      - "1414:1414"
+      - "9443:9443"
