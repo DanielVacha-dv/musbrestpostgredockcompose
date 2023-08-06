@@ -3,16 +3,12 @@ package cz.danes.mujsbpost.dockcompose.musbrestpostgredockcompose.domain.entity;
 import cz.danes.mujsbpost.dockcompose.musbrestpostgredockcompose.domain.model.AppName;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 import org.springframework.lang.NonNull;
 import org.springframework.lang.Nullable;
 
 @Entity
-@Getter
-@Setter
+@Data
 @ToString
 @NoArgsConstructor(force = true)
 @Table(name = "ebod", schema = "fis_ext")

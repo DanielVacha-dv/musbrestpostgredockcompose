@@ -31,6 +31,7 @@ public class Controller {
         String s = "hello " + now;
         log.info("message" + s);
         String s1 = eBodService.listEBod();
-        return s1 + " " + s;
+        String s2 = eBodService.listEBodDto();
+        return s1 + " " + s2+" "+s;
     }
 }
